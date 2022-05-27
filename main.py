@@ -4,7 +4,12 @@ class Student:
         self.name = name
         self.age = age
         self.tracks = []
-        self.tracks = self.tracks + tracks
+
+        if(isinstance(tracks, str)):
+            self.tracks.append(tracks)
+        else:
+            self.tracks = self.tracks + tracks
+
         self.score = score
     
 
@@ -33,7 +38,12 @@ class Student:
             return Exception
 
     def add_track(self, tracks):
-        self.tracks.append(tracks)
+        self.tracks = []
+
+        if(isinstance(tracks, str)):
+            self.tracks.append(tracks)
+        else:
+            self.tracks = self.tracks + tracks
 
     def change_score(self, score):
         try:
