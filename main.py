@@ -8,12 +8,7 @@ class Student:
         except Exception:
             return Exception
 
-        self.tracks = []
-
-        if(isinstance(tracks, str)):
-            self.tracks.append(tracks)
-        else:
-            self.tracks = self.tracks + tracks
+        self.tracks = list(tracks)
 
         try:
             self.score = float(score)
@@ -46,12 +41,7 @@ class Student:
             return Exception
 
     def add_track(self, tracks):
-        self.tracks = []
-
-        if(isinstance(tracks, str)):
-            self.tracks.append(tracks)
-        else:
-            self.tracks = self.tracks + tracks
+        self.tracks = list(tracks)
 
     def change_score(self, score):
         try:
