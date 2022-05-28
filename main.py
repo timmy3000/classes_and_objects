@@ -1,8 +1,13 @@
 class Student:
     # [assignment] Skeleton class. Add your code here
     def __init__(self, name = "", age = 0, tracks = [""], score = 0.0):
-        self.name = name
-        self.age = age
+        self.name = str(name)
+
+        try:
+            self.age = int(age)
+        except Exception:
+            return Exception
+
         self.tracks = []
 
         if(isinstance(tracks, str)):
@@ -10,7 +15,10 @@ class Student:
         else:
             self.tracks = self.tracks + tracks
 
-        self.score = score
+        try:
+            self.score = float(score)
+        except Exception:
+            return Exception
     
 
     # getters
@@ -29,7 +37,7 @@ class Student:
 
     # setters
     def change_name(self, name):
-        self.name = name
+        self.name = str(name)
 
     def change_age(self, age):
         try:
@@ -47,7 +55,7 @@ class Student:
 
     def change_score(self, score):
         try:
-            self.score = int(score)
+            self.score = float(score)
         except Exception:
             return Exception
 
